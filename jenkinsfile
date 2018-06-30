@@ -19,6 +19,9 @@ pipeline {
     stage("Build") {
       steps {
         echo "build"
+          sh "echo ${env.BUILD_NUMBER}"
+         sh "echo ${env.ARTIFACTOR}"
+         sh "touch ${ARTIFACTOR}"
       }
     }
     stage("Test") {
