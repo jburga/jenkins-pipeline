@@ -9,10 +9,10 @@ pipeline {
     ARTIFACTOR = "${env.BUILD_NUMBER}.zip"
     SLACK_MESSAGE = "Job '${env.JOB_NAME}' Build ${env.BUILD_NUMBER}"
   }
-  parameters {
     string(name: 'SLACK_CHANNEL', defaultValue: '#deploys', description: '')
     choice(name: 'TYPE', choices: 'aut\ncron\ndata', description: 'Autoscaling, Cron or Data')
-           booleanParam(name: DEPLOY, defaultValue: false, description: 'Deploy to server')
+    booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Deploy to server')
+
   }
   stages {
     stage("Repository") {
